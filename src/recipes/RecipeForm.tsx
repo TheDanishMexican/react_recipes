@@ -7,6 +7,7 @@ import {
     Recipe,
 } from '../services/apiFacade'
 import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const EMPTY_RECIPE = {
     id: null,
@@ -28,9 +29,9 @@ export default function RecipeForm() {
         recipeToEdit || EMPTY_RECIPE
     )
 
-    // useEffect(() => {
-    //   getCategories().then((res) => setCategories(res));
-    // }, []);
+    useEffect(() => {
+        getCategories().then((res) => setCategories(res))
+    }, [])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
