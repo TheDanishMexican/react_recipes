@@ -23,7 +23,7 @@ export default function App() {
                 <Route
                     path="/add"
                     element={
-                        <RequireAuth roles={['ADMIN']}>
+                        <RequireAuth roles={['USER']}>
                             <RecipeForm />
                         </RequireAuth>
                     }
