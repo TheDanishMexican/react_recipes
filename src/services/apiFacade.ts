@@ -21,6 +21,10 @@ interface Info {
     info: string
 }
 
+interface Category {
+    name: string
+}
+
 let categories: Array<string> = []
 // let recipes: Array<Recipe> = []
 let info: Info | null = null
@@ -30,6 +34,11 @@ async function getCategories(): Promise<Array<string>> {
     const res = await fetch(CATEGORIES_URL).then(handleHttpErrors)
     categories = [...res]
     return categories
+}
+
+async function addCategory(newCategory: Category): Promise<Array<string>> {
+    const options = makeOptions('POST', newCategory, true)
+    return fetch(CATEGORIES_URL, options).then(handleHttpErrors)
 }
 
 async function getRecipes(category: string | null): Promise<Array<Recipe>> {
@@ -75,4 +84,5 @@ export {
     addRecipe,
     deleteRecipe,
     getInfo,
+    addCategory,
 }

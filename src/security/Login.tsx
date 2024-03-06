@@ -30,8 +30,6 @@ const Login = () => {
             .catch((err) => {
                 setErr(err)
             })
-
-        console.log('This is the error: ', err)
     }
 
     return (
